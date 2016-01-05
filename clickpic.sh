@@ -34,10 +34,7 @@ else
 fi
 
 # Get the output of xprop into an array1
-while IFS= read -r line; do
-	info[$counter]=$line
-	((counter++))
-done < <(xprop)
+mapfile -t info < <(xprop)
 
 # Get the window class line from xprop
 while IFS= read -r line; do
